@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'io.cucumber:cucumber-java:6.8.1'
+    testCompile 'io.cucumber:cucumber-junit:6.8.1'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    compile group: 'io.cucumber', name: 'cucumber-picocontainer', version: '6.10.4'
+    compile group: 'io.cucumber', name: 'cucumber-html', version: '0.2.7'
+    compile group: 'de.monochromata.cucumber', name: 'reporting-plugin', version: '4.0.102'
+}
