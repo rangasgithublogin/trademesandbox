@@ -17,3 +17,10 @@ NOTE:
 **Reports**
 
 Can be found at target/cucumber/cucumber-html-reports/overview-features.html 
+
+**Caveats...Caveats...Caveats**
+
+Note: 
+- When you run the web api tests independently, you'll see the browser driver session being created.
+- I haven't implemented it here though it can be handled by introducing extra handles just as plain text in the feature file or scenario headings or an annotation
+- OR simple keep separate projects
