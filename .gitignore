@@ -7,3 +7,7 @@
 .gradle/buildOutputCleanup/buildOutputCleanup.lock
 .gradle/buildOutputCleanup/outputFiles.bin
 .idea/.name
+build/classes/java/test/ApiStepdefs.class
+build/classes/java/test/steps/ApiStepdefs.class
+build/classes/java/test/util/jsonUtil.class
+build/resources/test/features/TradeMeAPIs.feature

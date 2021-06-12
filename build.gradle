@@ -20,4 +20,6 @@ dependencies {
     compile group: 'io.cucumber', name: 'cucumber-picocontainer', version: '6.10.4'
     compile group: 'io.cucumber', name: 'cucumber-html', version: '0.2.7'
     compile group: 'de.monochromata.cucumber', name: 'reporting-plugin', version: '4.0.102'
+    // https://mvnrepository.com/artifact/org.json/json
+    implementation group: 'org.json', name: 'json', version: '20210307'
 }
