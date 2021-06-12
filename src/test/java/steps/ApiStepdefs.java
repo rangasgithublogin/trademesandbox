@@ -42,8 +42,8 @@ public class ApiStepdefs {
         Assert.assertEquals(200, conn.getResponseCode());
     }
 
-    @Then("the {} response has the expected data {}")
-    public void theResponseHasTheExpectedData(String responseFormat, String data) throws IOException {
+    @Then("the {} response has the expected data: {} given by the Service {}")
+    public void theResponseHasTheExpectedData(String responseFormat, String data, String serviceName) throws IOException {
         HttpURLConnection conn = pico.getComponent(HttpURLConnection.class);
         java.io.InputStream istrm = conn.getInputStream();
         InputStreamReader isr = new InputStreamReader(istrm);
@@ -54,10 +54,17 @@ public class ApiStepdefs {
             response = response.concat(line);
         }
         if (responseFormat.equalsIgnoreCase("json")){
-            JSONArray charityList = new JSONArray(response);
-            JSONObject charity = jsonUtil.getJSONObjectFromJSONArray(charityList,
-                    "Description", data);
-            Assert.assertEquals(data, charity.getString("Description").trim());
+            if (serviceName.equalsIgnoreCase("Charities")){
+                JSONArray charityList = new JSONArray(response);
+                JSONObject charity = jsonUtil.getJSONObjectFromJSONArray(charityList,
+                        "Description", data);
+                Assert.assertEquals(data, charity.getString("Description").trim());
+            } else if (serviceName.equalsIgnoreCase("Categories/UsedCars")){
+                JSONObject j = new JSONObject(response);
+                JSONArray carSubcategories = j.getJSONArray("Subcategories");
+                JSONObject car = jsonUtil.getJSONObjectFromJSONArray(carSubcategories, "Name", data);
+                Assert.assertEquals(data, car.getString("Name").trim());
+            }
         } else if (responseFormat.equalsIgnoreCase("xml"))
             throw new UnsupportedOperationException("XML Verification Not Implemented");
     }

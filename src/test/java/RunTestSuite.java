@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"de.monochromata.cucumber.report.PrettyReports:target/cucumber"},
         monochrome = true,
-        glue = {"cucumber.test.steps"},
+        glue = {"steps"},
         features = {"src/test/resources/features/"})
 public class RunTestSuite {
 }
