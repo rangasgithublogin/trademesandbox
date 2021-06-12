@@ -58,6 +58,7 @@ public class ApiStepdefs {
             JSONObject charity = jsonUtil.getJSONObjectFromJSONArray(charityList,
                     "Description", data);
             Assert.assertEquals(data, charity.getString("Description").trim());
-        }
+        } else if (responseFormat.equalsIgnoreCase("xml"))
+            throw new UnsupportedOperationException("XML Verification Not Implemented");
     }
 }
